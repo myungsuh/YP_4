@@ -6,32 +6,36 @@ class Person
   include New_Person
 end
 
-puts "You have now met a new person! Press enter to continue!"
-enter = gets.chomp
-
-Sam = Person.new
-Sam.speak_now
+def enter
+  gets.chomp
+end
 
 class Cool_Dog
   include Dog
   prepend Jumping
 end
 
-def input
-  if input == ["yes", "Yes", "YES"]
-    puts "What would you like to name your dog?"
-  elsif input == ["no", "NO", "No"]
-    puts "I'm sorry to hear that!"
-    abort "Please come back next time!"
+def  input
+  input = enter
+  if input == "Yes" || input == "YES"
+      puts "What would you like to name your dog?"
+      dog1 = Cool_Dog.new
+      dog1.name = gets.chomp
+      dog1.bark
+      puts "How old would you like your dog to be?"
+      dog1.age
+
+  elsif input == "no" || input == "NO"
+      puts "I'm sorry to hear that!"
+      abort "Please come back next time!"
+  else abort "That is not a response!"
   end
 end
 
+#start program)
+puts "You have now met a new person! Press enter to continue!"
+enter
+Sam = Person.new
+Sam.speak_now
 puts "\nWould you like to create a new dog?"
-please = gets.chomp
-please.input
-
-
-dog1 = Cool_Dog.new
-
-dog1.name = gets.chomp
-dog1.bark
+input
