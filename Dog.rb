@@ -2,17 +2,18 @@ module Dog
   attr_accessor :name, :breed, :age
 
   def bark
-    puts self.name + " woof"
+    puts self.name + " \"woof\""
   end
 
-def enter
-  enter = gets.to_i
+  def enters
+    enters = gets.to_i
+  end
 
   def age
-    age = enter
-    if self.age >= 10
+    age = enters
+    if (age >= 10)
       puts "Your dog is pretty old"
-    elsif (self.age > 0) && (self.age < 10)
+    elsif (age > 0) && (age < 10)
       puts "Your dog is pretty young"
     else raise Argumenterror, "This is impossible"
     end
